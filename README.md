@@ -76,13 +76,13 @@ DATABASES = {
 
 ### 미리보기
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/83a64861-fd8e-40e3-ac4c-b3a34f89330c/7d6bcb97-f49f-4071-8b1d-307712b60430/Untitled.png)
+[[![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/83a64861-fd8e-40e3-ac4c-b3a34f89330c/7d6bcb97-f49f-4071-8b1d-307712b60430/Untitled.png)](https://www.notion.so/5fc4503208df461f8b192227464c052e?pvs=4#ac33f905069c44d3843b5d285750b33d)](https://www.notion.so/5fc4503208df461f8b192227464c052e?pvs=4#19fbaa687602426c9420b1df9e9f6548)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/83a64861-fd8e-40e3-ac4c-b3a34f89330c/177995a7-b35f-4dbd-9ea6-1f4e0c5185ce/Untitled.png)
+[![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/83a64861-fd8e-40e3-ac4c-b3a34f89330c/177995a7-b35f-4dbd-9ea6-1f4e0c5185ce/Untitled.png)](https://www.notion.so/5fc4503208df461f8b192227464c052e?pvs=4#ac33f905069c44d3843b5d285750b33d)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/83a64861-fd8e-40e3-ac4c-b3a34f89330c/2c5f5867-1c22-4f1c-8b02-62b38409e728/Untitled.png)
+[![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/83a64861-fd8e-40e3-ac4c-b3a34f89330c/2c5f5867-1c22-4f1c-8b02-62b38409e728/Untitled.png)](https://www.notion.so/5fc4503208df461f8b192227464c052e?pvs=4#dd7d6f38faa84eb8b79c62b33d20a3ff)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/83a64861-fd8e-40e3-ac4c-b3a34f89330c/63726495-635b-4aef-941f-33e38af6af57/Untitled.png)
+[![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/83a64861-fd8e-40e3-ac4c-b3a34f89330c/63726495-635b-4aef-941f-33e38af6af57/Untitled.png)](https://www.notion.so/5fc4503208df461f8b192227464c052e?pvs=4#adeb1c0e951a41b6bd38cc5e0441099c)
 
 ]
 
