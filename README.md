@@ -64,7 +64,27 @@ DATABASES = {
 
 프로젝트 디렉토리에서 `python [manage.py](http://manage.py/) runserver` 실행 후
 
-웹 창 열고 → **`http://localhost:8000/register/` 주소 입력**
+웹 창 열고 → [`http://127.0.0.1:8000/login_register/`](http://127.0.0.1:8000/login_register/) **주소 입력**
+
+### 테스트 계정
+
+아이디: test@naver.com
+
+비밀번호: test
+
+---
+
+### 미리보기
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/83a64861-fd8e-40e3-ac4c-b3a34f89330c/7d6bcb97-f49f-4071-8b1d-307712b60430/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/83a64861-fd8e-40e3-ac4c-b3a34f89330c/177995a7-b35f-4dbd-9ea6-1f4e0c5185ce/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/83a64861-fd8e-40e3-ac4c-b3a34f89330c/2c5f5867-1c22-4f1c-8b02-62b38409e728/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/83a64861-fd8e-40e3-ac4c-b3a34f89330c/63726495-635b-4aef-941f-33e38af6af57/Untitled.png)
+
+]
 
 ---
 
