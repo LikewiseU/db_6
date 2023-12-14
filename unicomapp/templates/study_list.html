@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>내 스터디 목록</title>
+    <style>
+        /* 스타일 추가 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+        }
+        div {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        h3 {
+            margin: 0 0 10px 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>내 스터디 목록</h1>
+    <ul>
+        {% for study in studies %}
+        <li>
+            <a href="{% url 'study_home' study.study_id %}">{{ study.study_name }}</a>
+            <p>주기: {{ study.frequency }}</p>
+            <p>요일: {{ study.days }}</p>
+            <p>시작 시간: {{ study.time_start }}시</p>
+        </li>
+        {% empty %}
+        <p>참여중인 스터디가 없습니다.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+

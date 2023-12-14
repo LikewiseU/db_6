@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스터디 게시판 - 대학생 스터디-동아리 커뮤니티</title>
+    <style>
+        /* 스타일 추가 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+        }
+        div {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        h3 {
+            margin: 0 0 10px 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>스터디 게시판</h1>
+        <a href="{% url 'study_create' %}">스터디 개설</a>
+    </header>
+    <div>
+        <a href="{% url 'study_board' %}">스터디 게시판</a>
+        | 
+        <a href="{% url 'study_list' %}">내 스터디 목록</a>
+    </div>
+    <section>
+        {% for study_board in study_boards %}
+            <div>
+                <h3><a href="{% url 'study_detail' study_board.study_board_post_id %}">{{ study_board.title }}</a></h3>
+                <p>만남 시간: {{ study_board.study.frequency }}, {{ study_board.study.time_start }} 시</p>
+                <p>멤버 수: [{{ study_board.study.current_members }} / {{ study_board.study.max_participant }}]</p>
+                <!-- 추가 정보 표시 -->
+            </div>
+        {% endfor %}
+    </section>
+</body>
+</html>

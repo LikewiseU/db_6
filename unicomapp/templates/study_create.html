@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>스터디 개설</title>
+    <style>
+        /* 스타일 추가 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+        }
+        div {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        h3 {
+            margin: 0 0 10px 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>스터디 개설</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>{{ study_board_form.title.label_tag }} {{ study_board_form.title }}</p>
+        <p>{{ study_board_form.content.label_tag }} {{ study_board_form.content }}</p>
+        <p>{{ study_form.study_name.label_tag }} {{ study_form.study_name }}</p>
+        <p>{{ study_form.days.label_tag }} {{ study_form.days }}</p>
+        <p>{{ study_form.time_start.label_tag }} {{ study_form.time_start }}</p>
+        <p>{{ study_form.duration.label_tag }} {{ study_form.duration }}</p>
+        <p>{{ study_form.frequency.label_tag }} {{ study_form.frequency }}</p>
+        <p>{{ study_form.start_date.label_tag }} {{ study_form.start_date }}</p>
+        <p>{{ study_form.retention_period.label_tag }} {{ study_form.retention_period }}</p>
+        <p>{{ study_form.max_participant.label_tag }} {{ study_form.max_participant }}</p>
+        <p>{{ study_form.study_description.label_tag }} {{ study_form.study_description }}</p>
+        <p>{{ study_form.bank_account.label_tag }} {{ study_form.bank_account }}</p>
+        <button type="submit">게시글 작성</button>
+    </form>
+</body>
+</html>

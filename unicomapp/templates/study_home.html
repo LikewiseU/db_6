@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>스터디 상세 페이지</title>
+    <style>
+        /* 스타일 추가 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+        }
+        div {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        h3 {
+            margin: 0 0 10px 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{ study.study_name }}</h1>
+    </header>
+    <section>
+        <p>주기: {{ study.frequency }}</p>
+        <p>요일: {{ study.days }}</p>
+        <p>시작 시간: {{ study.time_start }}시</p>
+        <p>정산 계좌: {{ study.bank_account }}</p>
+        <!-- More study details -->
+        <a href="{% url 'study_cafe_reservation' %}">예약하기</a>
+    </section>
+    <section>
+        <h2>예약 내역</h2>
+        {% for reservation in reservations %}
+            <div>
+                <p>예약일: {{ reservation.billing_date }}</p>
+                <p>총 금액: {{ reservation.total_amount }}</p>
+                <button onclick="settleUp({{ reservation.reservation_id }}, {{ study.current_members }})" data-reservation-id="{{ reservation.reservation_id }}">정산하기</button>
+            </div>
+        {% empty %}
+            <p>예약 내역이 없습니다.</p>
+        {% endfor %}
+    </section>
+    <script>
+        function settleUp(reservationId, currentMemberCount) {
+            fetch(`/settle_reservation/${reservationId}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ memberCount: currentMemberCount })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert(`${data.reservation_date}의 예약이 정산되었습니다.`);
+                    document.getElementById(`amount-${reservationId}`).textContent = `총 금약: ${data.new_amount}`;
+                } else {
+                    alert('오류가 발생했습니다.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // CSRF 토큰 가져오는 함수 추가
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }                   
+    </script>
+</body>
+</html>

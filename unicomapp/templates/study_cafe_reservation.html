@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>스터디 카페 예약</title>
+    <style>
+        /* 스타일 추가 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+        }
+        div {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        h3 {
+            margin: 0 0 10px 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var currentStudyId = {{ current_study_id }};
+        function reserveRoom(roomId, cafeId, hourlyPrice) {
+            // Get current date in YYYY-MM-DD format
+            const today = new Date().toISOString().split('T')[0];
+    
+            fetch('/create_reservation/', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    roomId: roomId,
+                    cafeId: cafeId,
+                    studyId: currentStudyId,
+                    billingDate: today,
+                    hourlyPrice: hourlyPrice
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('예약이 완료되었습니다.');
+                    // Optionally refresh the page or update the UI
+                } else {
+                    alert('예약 실패: ' + data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+    <header>
+        <h1>스터디 카페 예약</h1>
+    </header>
+    <section>
+        {% for cafe in cafes %}
+            <div>
+                <h2>{{ cafe.cafe_name }}</h2>
+                <p>위치: {{ cafe.location }}</p>
+                <p><a href="{{ cafe.link }}">링크</a></p>
+                <h3>방 목록:</h3>
+                <ul>
+                    {% for room in cafe.rooms.all %}
+                        <li>
+                            {{ room.room_name }} - 가격: {{ room.hourly_price }}원, 최대 수용 인원: {{ room.room_capacity }}명
+                            <button onclick="reserveRoom({{ room.study_cafe_room_id }}, {{ room.cafe.cafe_id }}, {{ room.hourly_price }})">예약하기</button>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% empty %}
+            <p>등록된 스터디 카페가 없습니다.</p>
+        {% endfor %}
+    </section>
+</body>
+</html>

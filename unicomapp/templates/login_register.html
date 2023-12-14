@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대학생 스터디-동아리 커뮤니티</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        header {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+        }
+        .login, .register {
+            width: 45%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>대학생 스터디-동아리 커뮤니티</h1>
+    </header>
+    <div class="container">
+         <!-- 로그인 섹션 -->
+         <div class="login">
+            <h2>로그인</h2>
+            <form method="post" action="{% url 'login_register' %}">
+                {% csrf_token %}
+                <input type="text" name="email" placeholder="이메일">
+                <input type="password" name="password" placeholder="비밀번호">
+                <button type="submit" name="login_submit">로그인</button>
+            </form>
+        </div>
+        
+        <!-- 회원가입 섹션 -->
+        <div class="register">
+            <h2>회원가입</h2>
+            <form method="post" action="{% url 'login_register' %}">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="이름">
+                <input type="text" name="university_code" placeholder="대학 코드">
+                <input type="email" name="email" placeholder="이메일">
+                <input type="password" name="password" placeholder="비밀번호">
+                <input type="text" name="phone_number" placeholder="전화번호">
+                <button type="submit" name="register_submit">회원가입</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
